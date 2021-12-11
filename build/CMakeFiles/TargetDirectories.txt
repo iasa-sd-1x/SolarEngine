@@ -1,0 +1,3 @@
+D:/C_Lang/C++/project/build/CMakeFiles/proj.dir
+D:/C_Lang/C++/project/build/CMakeFiles/edit_cache.dir
+D:/C_Lang/C++/project/build/CMakeFiles/rebuild_cache.dir
