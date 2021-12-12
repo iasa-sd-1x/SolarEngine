@@ -1,3 +1,0 @@
-C:\cmake\bin\cmake.exe -E rm -f CMakeFiles\proj.dir/objects.a
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe qc CMakeFiles\proj.dir/objects.a @CMakeFiles\proj.dir\objects1.rsp
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -Wl,--whole-archive CMakeFiles\proj.dir/objects.a -Wl,--no-whole-archive -o proj.exe -Wl,--out-implib,libproj.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\proj.dir\linklibs.rsp
