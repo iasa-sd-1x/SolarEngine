@@ -4,7 +4,6 @@
 
 int main()
 {
-    
     if (!glfwInit())
     {
         return -1;
