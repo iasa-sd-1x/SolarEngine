@@ -56,10 +56,10 @@ RM = C:\cmake\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\C_Lang\C++\project
+CMAKE_SOURCE_DIR = D:\C_Lang\C++\SolarEngine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\C_Lang\C++\project\build
+CMAKE_BINARY_DIR = D:\C_Lang\C++\SolarEngine\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\project\build\CMakeFiles D:\C_Lang\C++\project\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\SolarEngine\build\CMakeFiles D:\C_Lang\C++\SolarEngine\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\project\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\SolarEngine\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -116,24 +116,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named proj
+# Target rules for targets named SolarEngine
 
 # Build rule for target.
-proj: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 proj
-.PHONY : proj
+SolarEngine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SolarEngine
+.PHONY : SolarEngine
 
 # fast build rule for target.
-proj/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\proj.dir\build.make CMakeFiles/proj.dir/build
-.PHONY : proj/fast
+SolarEngine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/build
+.PHONY : SolarEngine/fast
+
+src/linmath.obj: src/linmath.cpp.obj
+.PHONY : src/linmath.obj
+
+# target to build an object file
+src/linmath.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/src/linmath.cpp.obj
+.PHONY : src/linmath.cpp.obj
+
+src/linmath.i: src/linmath.cpp.i
+.PHONY : src/linmath.i
+
+# target to preprocess a source file
+src/linmath.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/src/linmath.cpp.i
+.PHONY : src/linmath.cpp.i
+
+src/linmath.s: src/linmath.cpp.s
+.PHONY : src/linmath.s
+
+# target to generate assembly for a file
+src/linmath.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/src/linmath.cpp.s
+.PHONY : src/linmath.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
 # target to build an object file
 src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\proj.dir\build.make CMakeFiles/proj.dir/src/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/src/main.cpp.obj
 .PHONY : src/main.cpp.obj
 
 src/main.i: src/main.cpp.i
@@ -141,7 +165,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\proj.dir\build.make CMakeFiles/proj.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -149,7 +173,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\proj.dir\build.make CMakeFiles/proj.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -160,7 +184,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... proj
+	@echo ... SolarEngine
+	@echo ... src/linmath.obj
+	@echo ... src/linmath.i
+	@echo ... src/linmath.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

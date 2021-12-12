@@ -299,11 +299,7 @@ extern "C" {
  *  release is made that does not contain any API changes.
  *  @ingroup init
  */
-<<<<<<< HEAD
-#define GLFW_VERSION_REVISION       6
-=======
 #define GLFW_VERSION_REVISION       5
->>>>>>> 79799baa8f5b186f2af4a6f9e27c4fc688a516c7
 /*! @} */
 
 /*! @brief One.
@@ -964,11 +960,7 @@ extern "C" {
  *  and [attribute](@ref GLFW_CONTEXT_VERSION_MINOR_attrib).
  */
 #define GLFW_CONTEXT_VERSION_MINOR  0x00022003
-<<<<<<< HEAD
-/*! @brief Context client API revision number attribute.
-=======
 /*! @brief Context client API revision number hint and attribute.
->>>>>>> 79799baa8f5b186f2af4a6f9e27c4fc688a516c7
  *
  *  Context client API revision number
  *  [attribute](@ref GLFW_CONTEXT_REVISION_attrib).
@@ -5235,11 +5227,6 @@ GLFWAPI int glfwUpdateGamepadMappings(const char* string);
  *  joystick is not present, does not have a mapping or an
  *  [error](@ref error_handling) occurred.
  *
-<<<<<<< HEAD
- *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref GLFW_INVALID_ENUM.
- *
-=======
->>>>>>> 79799baa8f5b186f2af4a6f9e27c4fc688a516c7
  *  @pointer_lifetime The returned string is allocated and freed by GLFW.  You
  *  should not free it yourself.  It is valid until the specified joystick is
  *  disconnected, the gamepad mappings are updated or the library is terminated.
@@ -5329,13 +5316,8 @@ GLFWAPI void glfwSetClipboardString(GLFWwindow* window, const char* string);
  *  @return The contents of the clipboard as a UTF-8 encoded string, or `NULL`
  *  if an [error](@ref error_handling) occurred.
  *
-<<<<<<< HEAD
- *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED, @ref
- *  GLFW_FORMAT_UNAVAILABLE and @ref GLFW_PLATFORM_ERROR.
-=======
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref
  *  GLFW_PLATFORM_ERROR.
->>>>>>> 79799baa8f5b186f2af4a6f9e27c4fc688a516c7
  *
  *  @pointer_lifetime The returned string is allocated and freed by GLFW.  You
  *  should not free it yourself.  It is valid until the next call to @ref

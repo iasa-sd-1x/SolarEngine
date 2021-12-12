@@ -1,8 +1,8 @@
-# Install script for directory: D:/C_Lang/C++/project
+# Install script for directory: D:/C_Lang/C++/SolarEngine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/proj")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/SolarEngine")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/C_Lang/C++/project/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/C_Lang/C++/SolarEngine/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

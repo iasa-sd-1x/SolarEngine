@@ -53,16 +53,16 @@ RM = C:\cmake\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\C_Lang\C++\project
+CMAKE_SOURCE_DIR = D:\C_Lang\C++\SolarEngine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\C_Lang\C++\project\build
+CMAKE_BINARY_DIR = D:\C_Lang\C++\SolarEngine\build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/proj.dir/all
+all: CMakeFiles/SolarEngine.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/proj.dir/clean
+clean: CMakeFiles/SolarEngine.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/proj.dir
+# Target rules for target CMakeFiles/SolarEngine.dir
 
 # All Build rule for target.
-CMakeFiles/proj.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\proj.dir\build.make CMakeFiles/proj.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\proj.dir\build.make CMakeFiles/proj.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\C_Lang\C++\project\build\CMakeFiles --progress-num=1,2 "Built target proj"
-.PHONY : CMakeFiles/proj.dir/all
+CMakeFiles/SolarEngine.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\C_Lang\C++\SolarEngine\build\CMakeFiles --progress-num=1,2,3 "Built target SolarEngine"
+.PHONY : CMakeFiles/SolarEngine.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/proj.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\project\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/proj.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\project\build\CMakeFiles 0
-.PHONY : CMakeFiles/proj.dir/rule
+CMakeFiles/SolarEngine.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\SolarEngine\build\CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/SolarEngine.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\C_Lang\C++\SolarEngine\build\CMakeFiles 0
+.PHONY : CMakeFiles/SolarEngine.dir/rule
 
 # Convenience name for target.
-proj: CMakeFiles/proj.dir/rule
-.PHONY : proj
+SolarEngine: CMakeFiles/SolarEngine.dir/rule
+.PHONY : SolarEngine
 
 # clean rule for target.
-CMakeFiles/proj.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\proj.dir\build.make CMakeFiles/proj.dir/clean
-.PHONY : CMakeFiles/proj.dir/clean
+CMakeFiles/SolarEngine.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SolarEngine.dir\build.make CMakeFiles/SolarEngine.dir/clean
+.PHONY : CMakeFiles/SolarEngine.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

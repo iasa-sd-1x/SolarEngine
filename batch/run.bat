@@ -1,5 +1,5 @@
 @echo off
-cd ../out/build/
+cd ../build/
 if not exist SolarEngine.exe (
     echo Can't find any SolarEngine.exe file... 
     goto end
