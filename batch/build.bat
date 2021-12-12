@@ -1,5 +1,5 @@
 @echo off
 cd ../out/build/
 make
-echo Successfully built harpy.exe
+echo Successfully built SolarEngine.exe
 :end

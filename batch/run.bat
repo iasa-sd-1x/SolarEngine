@@ -1,10 +1,10 @@
 @echo off
 cd ../out/build/
-if not exist harpy.exe (
-    echo Can't find any harpy.exe file... 
+if not exist SolarEngine.exe (
+    echo Can't find any SolarEngine.exe file... 
     goto end
 ) else (
-    start harpy
-    echo Starting harpy.exe...
+    start SolarEngine
+    echo Starting SolarEngine.exe...
 )
 :end
