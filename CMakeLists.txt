@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.2)
-project(SolarEngine)
+cmake_minimum_required(VERSION 3.2) # версия смейк
+project(SolarEngine) # project name
 
 file(GLOB
     INCLUDE_H "include/*.h"
@@ -16,9 +16,10 @@ link_directories(
 )
 
 add_executable(${PROJECT_NAME} 
-    ${SRC_CPP}
     ${INCLUDE_H}
+    ${SRC_CPP}
 )
+
 target_link_libraries(${PROJECT_NAME}
     opengl32
     glfw3
