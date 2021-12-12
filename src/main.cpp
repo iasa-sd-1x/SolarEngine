@@ -1,6 +1,5 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include <GL/gl.h>
 
 int main()
 {
