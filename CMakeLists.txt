@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.2) # версия смейк
-project(proj) # project name
+project(SolarEngine) # project name
 
 file(GLOB
+    INCLUDE_H "include/*.h"
     SRC_CPP "src/*.cpp"
 )
 
@@ -14,7 +15,10 @@ link_directories(
     external/lib/
 )
 
-add_executable(proj ${SRC_CPP}) # compile exe
+add_executable(${PROJECT_NAME} 
+    ${INCLUDE_H}
+    ${SRC_CPP}
+)
 
 target_link_libraries(${PROJECT_NAME}
     opengl32
