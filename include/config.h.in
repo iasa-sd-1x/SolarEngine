@@ -1,0 +1,10 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#cmakedefine PROJECT_NAME       "@PROJECT_NAME@"
+#cmakedefine PROJECT_VERSION    "@PROJECT_VERSION@"
+
+#cmakedefine M_WIDTH            @M_WIDTH@
+#cmakedefine M_HEIGHT           @M_HEIGHT@
+
+#endif // CONFIG_H
