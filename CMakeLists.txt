@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.2)
 project(SolarEngine VERSION 0.0.1)
 
+set(CMAKE_CXX_STANDARD 11)
+
 file(GLOB
     INCLUDE_H "include/*.h"
     SRC_CPP "src/*.cpp"
@@ -11,6 +13,9 @@ file(GLOB
 set(M_WIDTH 1280)
 set(M_HEIGHT 720)
 
+set(GCC_COMPILE_FLAGS "-DGLEW_STATIC")
+
+add_definitions(${GCC_COMPILE_FLAGS})
 
 include_directories(${PROJECT_NAME}
     ${CMAKE_CURRENT_BINARY_DIR}
@@ -27,18 +32,27 @@ add_executable(${PROJECT_NAME}
     ${SRC_CPP}
 )
 
+find_package(GLEW REQUIRED)
+
+include_directories(${GLEW_INCLUDE_DIRS})
+link_libraries(${GLEW_LIBRARIES})
+
 configure_file(include/config.h.in config.h)
 
 if (UNIX)
     target_link_libraries(${PROJECT_NAME}
         glfw3
+        GLEW
+        GL
         pthread
         dl 
     )
 elseif (WIN32)
     target_link_libraries(${PROJECT_NAME}
-        opengl32
         glfw3
+        GLEW
+        GL # unsure
+        opengl32
         gdi32
     )
 endif (UNIX)
