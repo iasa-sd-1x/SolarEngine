@@ -16,6 +16,7 @@ chmod +x "$PROJ_NAME"
 if [ -f "$EXEC" ]; then
     echo "Can't find any $PROJ_NAME binary file..."     
 else 
+    # Check if return code is equal to 0 (Success?)
     echo "... $PROJ_NAME ..."
     cd "$BUILD"
     ./"${PROJ_NAME}"
