@@ -1,5 +1,5 @@
 @echo off
 cd ../build/
-make
+mingw32-make
 echo Successfully built SolarEngine.exe
 :end
