@@ -1,8 +1,14 @@
 cmake_minimum_required(VERSION 3.2)
 
+# Getting variables from ProjectProperties.json
 file(READ ProjectProperties.json ProjectProperties)
 string(JSON project_actual_name GET ${ProjectProperties} project_name)
 string(JSON project_actual_ver GET ${ProjectProperties} project_version)
+message(STATUS "Building ${project_actual_name} ${project_actual_ver}")
+
+# Get build information
+string(JSON build_debug GET ${ProjectProperties} build debug-mode)
+message(STATUS "SolarEngine DEBUG: ${build_debug}")
 
 project(${project_actual_name} VERSION ${project_actual_ver})
 
@@ -14,13 +20,18 @@ file(GLOB
     SRC_CPP "src/*.cpp"
 )
 
+# To be changed
 # Main window resolution
-# Меняет разрешение главного окна (test)
 set(M_WIDTH 1280)
 set(M_HEIGHT 720)
 
-set(GCC_COMPILE_FLAGS "-DGLEW_STATIC")
-add_definitions(${GCC_COMPILE_FLAGS})
+# Add compile definitions
+set(GCC_COMPILE_DEFS "GLEW_STATIC") # static definitions
+add_compile_definitions(${GCC_COMPILE_DEFS})
+# IF build_debug IS ON then add SOLAR_DEBUG argument to gcc
+if (${build_debug})
+    add_compile_definitions(SOLAR_DEBUG)
+endif(${build_debug})
 
 include_directories(${PROJECT_NAME}
     ${CMAKE_CURRENT_BINARY_DIR}
