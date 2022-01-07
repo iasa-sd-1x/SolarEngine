@@ -1,4 +1,2 @@
 .vscode/
 build/
-# Ignore libraries because of incompatibilities
-external/lib/
