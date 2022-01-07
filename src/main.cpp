@@ -3,58 +3,84 @@
 
 #include <iostream>
 
+// uncomment to disable asserts
+// #define NDEBUG
+#include <cassert>
+
 #include <config.h>
 #include <solstd.h>
 
-
-void glew_log(std::string message)
+// To be rewritten
+class GLFW
 {
-    std::cout << "GLEW Log: " << message << std::endl;
-}
+public:
+    GLFWwindow *window;
+    const int width = M_WIDTH;
+    const int height = M_HEIGHT;
 
-void glfw_log(std::string message)
-{
-	std::cout << "GLFW Log: " << message << std::endl;
-}
+    GLFW()
+    {
+        if (!glfwInit())
+        { 
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    void createWindow(int width, int height, const char* title)
+    {
+        try 
+        {
+            window = glfwCreateWindow(width, height, title, NULL, NULL);
+            if (window == NULL)
+            {
+                glfwTerminate();
+                throw sol_exception("Window is NULL");
+            }
+        } 
+        catch (const sol_exception &e)
+        {
+            std::cout << e.what() << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
+        glfwMakeContextCurrent(window);
+        if (glewInit() != GLEW_OK)
+        {
+            exit(EXIT_FAILURE);
+        }
+
+        glfwSwapInterval(1);
+
+        while (!glfwWindowShouldClose(window))
+        {
+            glfwSwapBuffers(window);
+            glfwPollEvents();
+        }
+
+        glfwDestroyWindow(window);
+        
+        glfwTerminate();
+        exit(EXIT_SUCCESS);
+    }
+
+    ~GLFW()
+    {
+        assert(window != NULL);
+        glfwDestroyWindow(window);
+    }
+};
 
 int main()
 {
-    glfw_log("Started initializing GLFW");
-    if (!glfwInit())
-    { 
-        glfw_log("Failed to initialize GLFW. Stopping..."); 
-        exit(EXIT_FAILURE);
-    }
-    glfw_log("GLFW was successfully initialized");
-    GLFWwindow* window = glfwCreateWindow(M_WIDTH, M_HEIGHT, "Hello, World!", NULL, NULL);
-    glfw_log("Started creating Main Window");
-    if (window == NULL)
-    {
-	glfw_log("Failed to create Main Window. Stopping...");
-        glfwTerminate();
-        exit(EXIT_FAILURE);
-    }
+    std::cout << PROJECT_VERSION << std::endl;
+    std::cout << PROJECT_NAME << std::endl;
 
-    // Подключение OpenGL OpenES, инициализация GLEW
-    glfwMakeContextCurrent(window);
-    if (glewInit() != GLEW_OK)
-    {
-        glew_log("GLEW Init error");
-        exit(EXIT_FAILURE);
-    }
-    else glew_log("GLEW was successfully initialized");
-    glew_log(fstring("GLEW version: %s", glGetString(GL_VERSION)));
+    GLFW glfw;
+    glfw.createWindow(M_WIDTH, M_HEIGHT, "Main Window 1");
 
-    glfw_log(fstring("Main Window was successfully created: \nWindow Width -> %d\nWindow Height -> %d", M_WIDTH, M_HEIGHT));
-    glfwSwapInterval(1);
-    while (!glfwWindowShouldClose(window))
-    {
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-    glfw_log("Destroying Main Window. Terminating GLFW...");
-    glfwDestroyWindow(window);
-    
-    glfwTerminate();
     exit(EXIT_SUCCESS);
 }
+
+
+
+

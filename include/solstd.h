@@ -16,4 +16,20 @@
  */
 std::string fstring(const char *fmt, ...);
 
+/**
+ * @brief ---
+ * 
+ */
+class sol_exception : virtual std::exception
+{
+
+private:
+    std::string _error_string;
+
+public:
+    sol_exception(const char *error_str);
+    virtual ~sol_exception() = default;
+    virtual const char *what() const throw();
+};
+
 #endif // SOLSTD_H

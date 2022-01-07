@@ -50,3 +50,15 @@ std::string fstring(const char *fmt, ...)
     va_end(vl);
     return cpy;
 }
+
+// sol_exception
+sol_exception::sol_exception(const char *error_str)
+{
+    // rewrite
+    _error_string = std::string("Exception: ") + std::string(error_str);
+}
+
+const char *sol_exception::what() const throw()
+{
+    return _error_string.c_str();
+}
