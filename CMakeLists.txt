@@ -12,8 +12,9 @@ message(STATUS "SolarEngine DEBUG: ${build_debug}")
 
 project(${project_actual_name} VERSION ${project_actual_ver})
 
-
-set(CMAKE_CXX_STANDARD 11)
+# C11 -> C17 because of bug-fixes
+# Don't change this!
+set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB
     INCLUDE_H "include/*.h"
@@ -30,7 +31,7 @@ set(GCC_COMPILE_DEFS "GLEW_STATIC") # static definitions
 add_compile_definitions(${GCC_COMPILE_DEFS})
 # IF build_debug IS ON then add SOLAR_DEBUG argument to gcc
 if (${build_debug})
-    add_compile_definitions(SOLAR_DEBUG)
+    add_compile_definitions("SOLAR_DEBUG")
 endif(${build_debug})
 
 include_directories(${PROJECT_NAME}
