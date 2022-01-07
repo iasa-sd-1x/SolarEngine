@@ -14,7 +14,6 @@ set(M_WIDTH 1280)
 set(M_HEIGHT 720)
 
 set(GCC_COMPILE_FLAGS "-DGLEW_STATIC")
-
 add_definitions(${GCC_COMPILE_FLAGS})
 
 include_directories(${PROJECT_NAME}
@@ -22,20 +21,16 @@ include_directories(${PROJECT_NAME}
     include/
     external/include/
 )
+
 link_directories(
     lib/
     external/lib/
 )
-
+    
 add_executable(${PROJECT_NAME} 
     ${INCLUDE_H}
     ${SRC_CPP}
 )
-
-find_package(GLEW REQUIRED)
-
-include_directories(${GLEW_INCLUDE_DIRS})
-link_libraries(${GLEW_LIBRARIES})
 
 configure_file(include/config.h.in config.h)
 
@@ -50,8 +45,7 @@ if (UNIX)
 elseif (WIN32)
     target_link_libraries(${PROJECT_NAME}
         glfw3
-        GLEW
-        GL # unsure
+        glew32s.lib
         opengl32
         gdi32
     )
