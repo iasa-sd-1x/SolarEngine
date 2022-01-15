@@ -7,80 +7,33 @@
 // #define NDEBUG
 #include <cassert>
 
+#include <window.h>
 #include <config.h>
 #include <solstd.h>
 
-// To be rewritten
-class GLFW
+void debug_point(const char* msg)
 {
-public:
-    GLFWwindow *window;
-    const int width = M_WIDTH;
-    const int height = M_HEIGHT;
-
-    GLFW()
-    {
-        if (!glfwInit())
-        { 
-            exit(EXIT_FAILURE);
-        }
-    }
-
-    void createWindow(int width, int height, const char* title)
-    {
-        try 
-        {
-            window = glfwCreateWindow(width, height, title, NULL, NULL);
-            if (window == NULL)
-            {
-                glfwTerminate();
-                throw sol_exception("Window is NULL");
-            }
-        } 
-        catch (const sol_exception &e)
-        {
-            std::cout << e.what() << std::endl;
-            exit(EXIT_FAILURE);
-        }
-
-        glfwMakeContextCurrent(window);
-        if (glewInit() != GLEW_OK)
-        {
-            exit(EXIT_FAILURE);
-        }
-
-        glfwSwapInterval(1);
-
-        while (!glfwWindowShouldClose(window))
-        {
-            glfwSwapBuffers(window);
-            glfwPollEvents();
-        }
-
-        glfwDestroyWindow(window);
-        
-        glfwTerminate();
-        exit(EXIT_SUCCESS);
-    }
-
-    ~GLFW()
-    {
-        assert(window != NULL);
-        glfwDestroyWindow(window);
-    }
-};
+    #ifdef SOLAR_DEBUG
+        std::cout << msg << std::endl;
+    #endif
+}
 
 int main()
 {
-    std::cout << PROJECT_VERSION << std::endl;
-    std::cout << PROJECT_NAME << std::endl;
+    // ! don't delete
+    int initialized = glfwInit();
+    if (initialized == GLFW_FALSE)
+    {
+        debug_point("GLFW wasn't initialized");
+        exit(EXIT_FAILURE);
+    }
 
-    GLFW glfw;
-    glfw.createWindow(M_WIDTH, M_HEIGHT, "Main Window 1");
+    // use NEW keyword for now
+    SolarEngine::Window *window = new SolarEngine::Window(M_WIDTH, M_HEIGHT, "Main Window", false);
+    debug_point("Main Window was created");
+    while(window->renderFrame());
+    delete window;
 
-    exit(EXIT_SUCCESS);
+    // for windows users xDDDD
+    getchar();
 }
-
-
-
-
