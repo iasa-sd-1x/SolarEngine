@@ -1,4 +1,8 @@
 {
     "project_name": "SolarEngine",
-    "project_version": "0.0.1"
+    "project_version": "0.0.1",
+
+    "build": {
+        "debug-mode": true
+    }
 }
